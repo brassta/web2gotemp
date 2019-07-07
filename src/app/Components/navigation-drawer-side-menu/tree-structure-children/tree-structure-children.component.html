@@ -1,0 +1,36 @@
+<div class="children-header">
+    <a (click)="toggleChildren( rootChildren )" class="children-header__toggle">
+        <svg class="children-header__icon" viewBox="0 0 32 32">
+            <ng-container *ngIf="isExpanded">
+                <path d="M26 30l6-16h-26l-6 16zM4 12l-4 18v-26h9l4 4h13v4z" fill="currentColor"></path>
+            </ng-container>
+            <ng-container *ngIf="!isExpanded">
+                <path d="M14 4l4 4h14v22h-32v-26z" fill="currentColor"></path>
+            </ng-container>
+        </svg>
+        <span class="children-header__label">{{ rootChildren.Caption }}</span>
+    </a>
+</div>
+<section *ngIf="isExpanded" class="contents">
+    <ul *ngIf="rootChildren.Children !== null" class="folders">
+        <li *ngFor="let subchildren of rootChildren.Children" [ngClass]="[subchildren.Children !== null ? 'folders__item' : 'files__item']">
+            <ng-container *ngIf="subchildren.Children !== null">
+                <solo-tree-structure-children
+                        [rootChildren]="subchildren"
+                        [expandedChildren]="expandedChildren"
+                        (toggleChildrenEvents)="toggleChildren( $event )">
+                </solo-tree-structure-children>
+            </ng-container>
+            <ng-container *ngIf="subchildren.Children === null">
+                <div class="children-header"><i class="children-header__icon {{getRandomIcons()}}"></i>
+                    <span class="children-header__label">{{ subchildren.Caption }}</span>
+                </div>
+            </ng-container>
+        </li>
+    </ul>
+    <ng-template [ngIf]="( ! rootChildren.Children )">
+        <em class="empty">
+            Folder is empty.
+        </em>
+    </ng-template>
+</section>

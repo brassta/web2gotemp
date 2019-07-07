@@ -1,0 +1,42 @@
+<div class="header-wrapper">
+    <div class="header-inner-wrapper">
+        <div class="header-inner-toolbar">
+            <ul *ngIf="userLoggedIn">
+                <li>
+                    <solo-header-icon-button [iconGroup]="'strong'" [iconName]="'bars'" (click)="setMenuState()"></solo-header-icon-button>
+                </li>
+            </ul>
+            <h1>{{actualBusinessObjectName}}</h1>
+        </div>
+        <div class="header-inner-toolbar">
+            <ul>
+                <li>
+                    <solo-header-icon-button [iconGroup]="'strong'" [iconName]="'filter'"></solo-header-icon-button>
+                </li>
+                <li>
+                    <solo-header-icon-button [iconGroup]="'strong'" [iconName]="'redo'"></solo-header-icon-button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="header-inner-wrapper">
+        <div class="header-inner-toolbar">
+        </div>
+        <div class="header-inner-toolbar">
+            <ul>
+                <li>
+                    <solo-header-icon-button [iconGroup]="'strong'" [iconName]="'ellipsis-v'"></solo-header-icon-button>
+                </li>
+                <li>
+                    <solo-header-icon-button [iconGroup]="'strong'" [iconName]="'trash'"></solo-header-icon-button>
+                </li>
+                <li *ngIf="!userLoggedIn">
+                    <solo-header-icon-button [iconGroup]="'strong'" [iconName]="'user'" (click)="openLogin()"></solo-header-icon-button>
+                </li>
+                <li *ngIf="userLoggedIn">
+                    <solo-header-icon-button [iconGroup]="'strong'" [iconName]="'circle'" (click)="openLogin()"></solo-header-icon-button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+{
+    "extends": "../tslint.json",
+    "rules": {
+        "directive-selector": [
+            true,
+            "attribute",
+            "solo",
+            "camelCase"
+        ],
+        "component-selector": [
+            true,
+            "element",
+            "solo",
+            "kebab-case"
+        ],
+        "semicolon": [true, "always", "ignore-bound-class-methods"],
+        "max-line-length": [true, 1120],
+        "no-string-literal": false
+    }
+}

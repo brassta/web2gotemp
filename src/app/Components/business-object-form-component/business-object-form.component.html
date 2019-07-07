@@ -1,0 +1,36 @@
+<div class="detail-layout-wrapper">
+    <div class="soloplan-circle"></div>
+    <div class="close-button-container">
+        <button class="close-view-button" (click)="closeDetailView($event)">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <form [formGroup]="businessDetailForm">
+        <div class="form-line material" *ngFor="let entry of formData; let i = index">
+            <ng-container *ngIf="entry.key !== 'isActive' && +businessObjectFields[i].propertyId > 0">
+                <label [htmlFor]="entry.key" [classList]="entry.value.toString().length > 0 ? 'entered' : ''">{{ entry.label }}</label>
+                <input [type]="entry.fieldType" [formControlName]="entry.key" [id]="entry.key"
+                       [attr.data-property-id]="businessObjectFields[i].propertyId"/><span class="bar"></span>
+            </ng-container>
+            <ng-container *ngIf="entry.key !== 'isActive' && +businessObjectFields[i].propertyId <= 0">
+                <label [htmlFor]="entry.key" [classList]="entry.value.toString().length > 0 ? 'entered' : ''">{{ entry.label }}</label>
+                <input [type]="entry.fieldType" [formControlName]="entry.key" readonly [id]="entry.key" [attr.data-property-id]="businessObjectFields[i].propertyId"/><span class="bar"></span>
+            </ng-container>
+            <ng-container *ngIf="entry.key === 'isActive' && entry.fieldType === 'checkbox'"><label class="checkbox-label"><input [type]="entry.fieldType" (change)="checkboxChanged($event)" [attr.data-property-id]="businessObjectFields[i].propertyId" [checked]="entry.value === true ? 'checked' : ''" [formControlName]="entry.key" [id]="entry.key"/><span></span>{{entry.label}}</label>
+            </ng-container>
+        </div>
+        <div class="form-line material button-bar">
+            <button class="ripple" (click)="resetDetailView()" [disabled]="originalBusinessObjectListChanged">Cancel</button>
+            <button class="ripple" (click)="deleteBusinessObject()">Delete</button>
+            <button class="ripple" (click)="createBusinessObject()">New</button>
+            <button class="ripple" (click)="submitChangesToSave()" [disabled]="originalBusinessObjectListChanged">Save</button>
+        </div>
+    </form>
+    <div class="loading-spinner-block" *ngIf="isLoading">
+        <div class="spinner-container-wrapper">
+            <div class="spinner-container-inner">
+                <i class="material-icons rotating">refresh</i>
+            </div>
+        </div>
+    </div>
+</div>

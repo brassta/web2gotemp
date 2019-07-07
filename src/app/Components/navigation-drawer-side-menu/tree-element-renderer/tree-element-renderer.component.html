@@ -1,0 +1,19 @@
+<!--{{data | json}}-->
+<ul>
+    <ng-container *ngFor="let item of data let i  = index">
+        <li *ngIf="i>0"
+            (click)="treeElementClicked(item, $event)"
+            [ngClass]="{
+            'folder-item':item['Type']==='Folder',
+            'dialog':item['Type']==='Dialog',
+             'opened':item['Opened'],
+              'parent':item['Type']==='Category',
+               'terminal':!item['Children'],
+               'tab-data':item['Type']==='TabSheet'
+               } ">
+            <span class="ripple"><i [ngClass]="item['Caption'] |uppercase | mainMenuIconConverter"></i>{{item['Caption']}}</span>
+            <solo-tree-element-renderer [parent]="parent" [data]="item['Children']" *ngIf="item['Children']"></solo-tree-element-renderer>
+        </li>
+
+    </ng-container>
+</ul>

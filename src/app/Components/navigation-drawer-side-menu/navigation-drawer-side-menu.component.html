@@ -1,0 +1,53 @@
+<div class="side-menu-container">
+    <!--    <div class="side-menu-wraper">-->
+    <!--        <div [ngClass]="[isShowData ? 'side-menu-header-show' : 'side-menu-header-hide']" class="side-menu-header">-->
+    <!--            <span *ngIf="isShowData" class="side-menu-header-text">{{sideMenuHeaderText}}</span>-->
+    <!--            <div (click)="openCloseSideMenu()">-->
+    <!--                <span class="side-menu-header-show-hide">-->
+    <!--                     <i *ngIf="isShowData === true" class="fas fa-angle-double-left side-menu-header-icons"></i>-->
+    <!--                     <i *ngIf="isShowData === false" class="fas fa-angle-double-right side-menu-header-icons"></i>-->
+    <!--                </span>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <div [ngClass]="[isExpanded ? 'side-menu-show' : 'side-menu-hide']">-->
+    <!--            <div [ngClass]="[isExpanded ? 'top-side-menu-wraper-show' : 'top-side-menu-wraper-hide']">-->
+    <!--                <div (click)="showOnlyTopManu()" *ngIf="!isShowData" class="top-side-vertical-menu"><span class="top-side-vertical-menu-text">{{sideMenuHeaderText}}</span></div>-->
+    <!--                <div [ngClass]="[isExpanded ? 'top-side-menu-show' : 'top-side-menu-hide']">-->
+    <!--                    <div *ngIf="isExpanded">-->
+    <!--                        <div class="favourites-wraper">-->
+    <!--                            <i class="fas fa-star  top-menu-icon"></i>-->
+    <!--                            <span>Favourites</span>-->
+    <!--                            <hr>-->
+    <!--                        </div>-->
+    <!--                        <solo-side-menu-tree-structure-->
+    <!--                                (toggleChildrenEvents)="toggleChildren( $event )"-->
+    <!--                                [expandedChildren]="expandedChildren"-->
+    <!--                                [rootChildren]="rootChildren">-->
+    <!--                        </solo-side-menu-tree-structure>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <div [ngClass]="[isShowData ? 'bottom-side-menu-show' : 'bottom-side-menu-hide']">-->
+    <!--                <div class="bottom-side-menu">-->
+    <!--                    <a (click)=displayObjectStructureInSideMenu(i) *ngFor="let dataName of menuJsonData | slice:1; let i = index" [ngClass]="{'active': selectedItem === dataName.Caption}">-->
+    <!--                        <div class="bottom-menu-icon"><i class="{{buttonsIcons[i]}} "></i></div>-->
+    <!--                        <span *ngIf="isShowData" class="bottom-side-menu-button-text">{{dataName.Caption}}</span>-->
+    <!--                    </a>-->
+    <!--                    <a>-->
+    <!--                        <div class="bottom-menu-icon"><i class="{{buttonsIcons[0]}} "></i></div>-->
+    <!--                        <span *ngIf="isShowData" class="bottom-side-menu-button-text">MANU</span>-->
+    <!--                    </a>-->
+
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <div class="side-menu-wrapper">
+<!--        <div class="menu-block" *ngFor="let item of menuJsonData let i = index"><h2 class="menu-title" (click)="changeAccordionState(i)">{{item.Caption}}</h2>-->
+<!--            <ng-container *ngIf="item.Children.length>0">-->
+<!--                <div class="menu-items-wrapper" *ngFor="let childItem of item.Children">children jebote</div>-->
+<!--            </ng-container>-->
+<!--        </div>-->
+        <solo-tree-element-renderer [data]="menuJsonData" [parent]="this"></solo-tree-element-renderer>
+    </div>
+</div>

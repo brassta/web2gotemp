@@ -1,0 +1,7 @@
+<nav class="mobile-main-menu">
+    <div class="logo-container"><a routerLink="/"><img src="./assets/img/logo-circle.png" alt=""></a></div>
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="hamburger-menu-button"><mat-icon>menu</mat-icon></button>
+    <mat-menu #menu="matMenu">
+        <solo-main-navigation-items></solo-main-navigation-items>
+    </mat-menu>
+</nav>

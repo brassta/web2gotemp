@@ -1,0 +1,35 @@
+<div class="layout-content">
+    <div class="business-object-layout-wrapper">
+        <h1>Login</h1>
+        <div class="login-form-container">
+
+            <div class="login-form-holder">
+                <div class="user-choser">
+                    <ul>
+                        <li *ngFor="let user of users let i = index">
+                            <button (click)="changeUser(i)">{{i + 1}}</button>
+                        </li>
+                    </ul>
+                </div>
+                <form #loginForm="ngForm" (ngSubmit)="loginUser($event)">
+                    <div class="form-container soloplan-form">
+                        <div class="form-row" (submit)="loginUser($event)">
+                            <label for="user">Username</label>
+                            <input type="text" id="user" [(ngModel)]="activeUser['username']" name="user"/>
+                        </div>
+                        <div class="form-row">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" [(ngModel)]="activeUser['pass']" name="password"/>
+                        </div>
+                        <div class="form-row  bool-container checkbox"><label for="rememeber">Remember me<input id="rememeber" type="checkbox" [checked]="activeUser['remember']"><span class="checkbox-fake"></span></label></div>
+                        <div class="form-row right-align">
+                            <button type="reset">Reset</button>
+                            <button type="submit">Login</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

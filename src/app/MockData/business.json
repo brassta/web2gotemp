@@ -1,0 +1,244 @@
+{
+  "layouttree": {
+    "clientID": "Qtyq2qPM5Y5yRBUpg8t6OA",
+    "objectType": "Branch",
+    "layoutTree": {
+      "caption": "Branchen",
+      "isMandatory": false,
+      "propertyName": "",
+      "propertyId": 5000000,
+      "showInGUI": true,
+      "dataType": "Interface",
+      "maxLenght": 0,
+      "visible": true,
+      "layoutTree": [
+        {
+          "caption": "Id",
+          "isMandatory": true,
+          "propertyName": "id",
+          "propertyId": -1000,
+          "showInGUI": true,
+          "dataType": "Integer",
+          "maxLenght": 0,
+          "visible": true
+        },
+        {
+          "caption": "Aktiv",
+          "isMandatory": false,
+          "propertyName": "isActive",
+          "propertyId": 5000007,
+          "showInGUI": true,
+          "dataType": "Boolean",
+          "maxLenght": 0,
+          "visible": true
+        },
+        {
+          "caption": "Nummer",
+          "isMandatory": true,
+          "propertyName": "number",
+          "propertyId": 5000002,
+          "showInGUI": true,
+          "dataType": "Integer",
+          "maxLenght": 0,
+          "visible": true
+        },
+        {
+          "caption": "Matchcode",
+          "isMandatory": true,
+          "propertyName": "matchcode",
+          "propertyId": 5000003,
+          "showInGUI": true,
+          "dataType": "String",
+          "maxLenght": 10,
+          "visible": true
+        },
+        {
+          "caption": "Bezeichnung",
+          "isMandatory": true,
+          "propertyName": "designation",
+          "propertyId": 5000004,
+          "showInGUI": true,
+          "dataType": "String",
+          "maxLenght": 40,
+          "visible": true
+        },
+        {
+          "caption": "Organisation",
+          "isMandatory": false,
+          "propertyName": "objectOwner",
+          "propertyId": 5000005,
+          "showInGUI": true,
+          "dataType": "Interface",
+          "maxLenght": 0,
+          "visible": true
+        },
+        {
+          "caption": "Bearbeitungshistorie",
+          "isMandatory": false,
+          "propertyName": "auditInfo",
+          "propertyId": 5000006,
+          "showInGUI": true,
+          "dataType": "Interface",
+          "maxLenght": 0,
+          "visible": true,
+          "layoutTree": [
+            {
+              "caption": "Erstellung",
+              "isMandatory": false,
+              "propertyName": "firstRevision",
+              "propertyId": 5027001,
+              "showInGUI": true,
+              "dataType": "Interface",
+              "maxLenght": 0,
+              "visible": true,
+              "layoutTree": [
+                {
+                  "caption": "am",
+                  "isMandatory": false,
+                  "propertyName": "timestamp",
+                  "propertyId": 5027101,
+                  "showInGUI": true,
+                  "dataType": "DateTime",
+                  "maxLenght": 0,
+                  "visible": true
+                },
+                {
+                  "caption": "Durch",
+                  "isMandatory": false,
+                  "propertyName": "user",
+                  "propertyId": 5027102,
+                  "showInGUI": true,
+                  "dataType": "Interface",
+                  "maxLenght": 0,
+                  "visible": true
+                }
+              ]
+            },
+            {
+              "caption": "Letzte Änderung",
+              "isMandatory": false,
+              "propertyName": "latestRevision",
+              "propertyId": 5027002,
+              "showInGUI": true,
+              "dataType": "Interface",
+              "maxLenght": 0,
+              "visible": true,
+              "layoutTree": [
+                {
+                  "caption": "am",
+                  "isMandatory": false,
+                  "propertyName": "timestamp",
+                  "propertyId": 5027101,
+                  "showInGUI": true,
+                  "dataType": "DateTime",
+                  "maxLenght": 0,
+                  "visible": true
+                },
+                {
+                  "caption": "Durch",
+                  "isMandatory": false,
+                  "propertyName": "user",
+                  "propertyId": 5027102,
+                  "showInGUI": true,
+                  "dataType": "Interface",
+                  "maxLenght": 0,
+                  "visible": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "err": null,
+    "destinationMethod": "GetLayout",
+    "timeCreated": 0,
+    "preferedCarloInstance": null
+  },
+  "businessObjectList": [
+    {
+      "id": 4,
+      "isActive": true,
+      "number": 444555232,
+      "matchcode": "AA113",
+      "designation": "AA113444555232"
+    },
+    {
+      "id": 13,
+      "isActive": true,
+      "number": 13123,
+      "matchcode": "SPS321",
+      "designation": "SPS3212213123"
+    },
+    {
+      "id": 10,
+      "isActive": true,
+      "number": 10,
+      "matchcode": "B",
+      "designation": "Behörden"
+    },
+    {
+      "id": 9,
+      "isActive": true,
+      "number": 9,
+      "matchcode": "VB",
+      "designation": "Verband / Verein"
+    },
+    {
+      "id": 7,
+      "isActive": true,
+      "number": 71,
+      "matchcode": "P555",
+      "designation": "P55571"
+    },
+    {
+      "id": 1,
+      "isActive": true,
+      "number": 1827911125,
+      "matchcode": "Branche",
+      "designation": "Branche1827911125"
+    },
+    {
+      "id": 4000202455,
+      "isActive": true,
+      "number": 12345,
+      "matchcode": "BRANCH",
+      "designation": "BRANCH12345"
+    },
+    {
+      "id": 2,
+      "isActive": true,
+      "number": 21,
+      "matchcode": "TU031",
+      "designation": "TU03121"
+    },
+    {
+      "id": 6,
+      "isActive": true,
+      "number": 65698,
+      "matchcode": "HHH",
+      "designation": "HHH65698"
+    },
+    {
+      "id": 5,
+      "isActive": true,
+      "number": 5678,
+      "matchcode": "UBW2GO",
+      "designation": "UBW2GO5678"
+    },
+    {
+      "id": 3,
+      "isActive": true,
+      "number": 3654124,
+      "matchcode": "W2BGTR",
+      "designation": "W2BGTR3654124"
+    },
+    {
+      "id": 8,
+      "isActive": true,
+      "number": 818345,
+      "matchcode": "S12555",
+      "designation": "S12555818345"
+    }
+  ]
+}

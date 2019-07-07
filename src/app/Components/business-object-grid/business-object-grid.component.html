@@ -1,0 +1,50 @@
+<div class="business-object-grid">
+    <solo-grid-toolbar [visibilityColumnsArr]="columnsVisibility" [columnsData]="displayedColumnsMetaData" [shrink]="searchFieldsPerColumnVisible"></solo-grid-toolbar>
+    <table>
+        <thead>
+        <tr>
+            <th class="select all" (click)="selectAllRowsAction()"></th>
+            <th class="small-device-data"><solo-grid-header-cell [actualHeaderValue]="'Data'"></solo-grid-header-cell></th>
+            <th *ngFor="let layoutDataSet of displayedColumnsMetaData let i = index" [ngClass]="{
+                'non-visible':!columnsVisibility[i],
+                'sort-enabled':sortByColumn[i],
+                'sort-asc':sortByColumn[i] && sortDirection==='asc',
+                'sort-desc':sortByColumn[i] && sortDirection==='desc'
+            }" (click)="sortRequestHappen(i)">
+                <solo-grid-header-cell [actualHeaderValue]="layoutDataSet['caption']" [actualHeaderPropertyName]="layoutDataSet['propertyName']" [acutalHeaderPropertyId]="layoutDataSet['propertyId']" [visibleColumnOrderIndex]="getVisibleColumnIndex(i)" [actualHeaderOrderIndex]="i" [columnsLength]="VisibleColumnsLength" [ngClass]="{ 'sort-asc':true, 'sort-desc':false}"></solo-grid-header-cell>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="search-fields-row">
+            <td></td>
+            <td class="small-device-data"></td>
+            <td *ngFor="let layoutDataSet of displayedColumnsMetaData let i = index" [ngClass]="columnsVisibility[i]?'':'non-visible'">
+                <div class="soloplan-form">
+                    <div class="form-row" [ngClass]="{'shrink-enabled':true, 'shrink':!searchFieldsPerColumnVisible}">
+                        <input type="text" placeholder="Search" [id]="layoutDataSet['propertyName']" (keyup)="doSearchByColumn(layoutDataSet,$event,i,getVisibleColumnIndex(i))"/>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr *ngFor="let currentObject of businessObjectList let i = index"
+            (click)="setClickedRow(i, currentObject['id'])"
+            [ngClass]="{
+            'non-visible':isInList(currentObject['id']),
+            'active':activeRowPosition[i]
+            } ">
+            <td class="select"></td>
+            <td class="small-device-data"><div class="title">{{currentObject['designation']}}</div><div class="explanation">{{currentObject['matchcode']}}</div></td>
+            <td *ngFor="let layoutDataSet of displayedColumnsMetaData let i = index"
+                [ngClass]="{
+                'non-visible':!columnsVisibility[i]
+                }">
+                <i *ngIf="layoutDataSet['dataType'] === 'Boolean'" class="far" [ngClass]="currentObject[layoutDataSet['propertyName']] | booleanIconConverter"></i> <span *ngIf="layoutDataSet['dataType'] !== 'Boolean'">{{ currentObject[layoutDataSet['propertyName']]}}</span></td>
+        </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+    <button class="add-new-bussiness-object ripple">+</button>
+</div>

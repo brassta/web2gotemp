@@ -1,0 +1,36 @@
+<div class="layout-content">
+    <div class="business-object-layout-wrapper">
+<!--        <h1>{{ bussinesObjectName }}</h1>-->
+        <div class="spinner-container-wrapper" *ngIf="!hasObjects &&!hasLayoutTree">
+            <div class="spinner-container-inner">
+                <i class="material-icons rotating">refresh</i>
+            </div>
+        </div>
+
+        <div class="master-detail-layout-wrapper">
+            <solo-business-object-grid
+                    *ngIf="hasObjects && hasLayoutTree"
+                    [displayedColumnsMetaData]="displayedColumnsMetaData"
+                    [businessObjectList]="businessObjectsList"
+                    [displayedColumns]="displayedColumns"
+                    (tableRowClicked)="tableRowClickedListener($event)"
+            ></solo-business-object-grid>
+
+            <solo-business-object-form
+                    *ngIf="hasObjects && hasLayoutTree"
+                    [businessObjectFields]="displayedColumnsMetaData"
+                    [isLoading]="IsLoading"
+                    [detailViewVisible]="DetailViewVisible"
+                    [activeBusinessObject]="activeBusinessObject"
+                    [originalBusinessObjectListChanged]="OriginalBusinessObjectListChanged"
+                    (detailsViewVisibleChanged)="detailsViewVisibleChangedListener($event)"
+                    (businessObjectChanged)="detailsViewBusinessObjectChangedListener($event)"
+                    (resetDetailViewRequest)="resetDetailViewRequestListener()"
+                    (createNewBusinessObjectRequest)="createNewBusinessObjectRequestListener()"
+                    (saveBusinessObjectRequest)="saveBusinesObjectRequestListener()"
+                    (deleteBusinessObjectRequest)="deleteBusinessOBjectRequestListener()"
+            >
+            </solo-business-object-form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="grid-context-menu-wrapper">
+    <div class="control-block column-visibility-toolbar">
+        <h4>Columns Visibility</h4>
+        <ul>
+            <li *ngFor="let column of columnsData let i = index">
+                <button (click)="visibilityColumnChangeNotify(i)" href=""><i *ngIf="visibilityColumnsArr[i]" class="material-icons">check_box</i> <i *ngIf="!visibilityColumnsArr[i]" class="material-icons">check_box_outline_blank</i> {{columnsData[i].caption}}</button>
+            </li>
+        </ul>
+    </div>
+    <div class="control-block column-order-toolbar">
+        <h4>Columns Order - drag to reorder</h4>
+        <div cdkDropList class="dropList"   (cdkDropListDropped)="onColumnsDragReordered($event)">
+                    <div *ngFor="let column of columnsData let i=index" class="full-width-button" cdkDrag cdkDragLockAxis="y">{{columnsData[i].caption}}</div>
+        </div>
+    </div>
+    <div class="control-block columns-search-field-enabled-toolbar">
+        <h4>Enable Columns Specific Search</h4>
+        <ng-container>
+            <div class="soloplan-form">
+                <div class="form-row  bool-container checkbox"><label for="showSearchFields">Show Search Fields<input id="showSearchFields" type="checkbox" (change)="toggleSearchFields()" [checked]="shrink"><span class="checkbox-fake"></span></label></div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="footer">
+        <a class="close" (click)="close()">Close</a>
+    </div>
+</div>

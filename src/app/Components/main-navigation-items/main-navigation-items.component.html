@@ -1,0 +1,12 @@
+<button routerLink="/" mat-raised-button color="primary">Home</button>
+<button mat-menu-item [matMenuTriggerFor]="branchesSubmenu">Branches</button>
+
+<mat-menu #branchesSubmenu="matMenu">
+    <button mat-menu-item routerLink="/simple-branch">Simple Branch</button>
+    <button mat-menu-item routerLink="/material-design">Material Design Branches Layout</button>
+    <button mat-menu-item routerLink="/devExpress">DevExpress Branches Layout</button>
+    <button mat-menu-item routerLink="/dynamic-layout">Dynamic Layout</button>
+</mat-menu>
+
+<div [ngClass]="{'login-button-container':!isUserLogged, 'hide-login-button-container': isUserLogged}"><a [href]="pathToLogin" mat-raised-button color="primary">Login</a></div>
+<a mat-raised-button color="primary" (click)="doRefreshToken()">Refresh</a>

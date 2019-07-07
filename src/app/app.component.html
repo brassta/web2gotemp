@@ -1,0 +1,21 @@
+<solo-header></solo-header>
+<!--<solo-mobile-main-navigation></solo-mobile-main-navigation>-->
+<solo-main-navigation [userLogged]="userLoged"></solo-main-navigation>
+<div class="container">
+    <div class="row">
+        <div class="layout-content">
+            <div class="business-object-layout-wrapper">
+                <div class="main-content-wrapper" [ngClass]="{'main-content-wrapper':true, 'menu-active':menuActive}">
+                    <div class="main-menu-container-wrapper">
+                        <solo-navigation-drawer-side-menu></solo-navigation-drawer-side-menu>
+                    </div>
+                    <div class="routed-content-wrapper">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<solo-footer-wrapper></solo-footer-wrapper>
+

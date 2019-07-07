@@ -1,0 +1,7 @@
+<div class="grid-toolbar-wrapper soloplan-form">
+    <div [ngClass]="{'form-row':true, 'search-field':true, 'shrink':shrink}">
+        <input type="text" id="searc-grid" placeholder="Search" [ngClass]="{'shrink-enabled':true,'shrink':shrink}" [(ngModel)]="searchTerm" (keyup)="doFilterBusinessList()" class="half-input"/>
+        <button class="search-field-clear-button" [ngClass]="{'visible':searchTerm.length>0}" (click)="clearSearchFirld()"><i class="fas fa-times"></i></button>
+        <button class="grid-menu icon-button menu-dots-horizontal ripple" (click)="toggleContextMenu(btnref)" #btnref></button>
+    </div>
+</div>

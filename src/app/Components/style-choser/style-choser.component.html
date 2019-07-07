@@ -1,0 +1,7 @@
+<div class="style-choser-wrapper">
+    <ul>
+        <li *ngFor="let styleItem  of stylesList">
+            <button #refEl class="style-choser-button" title="{{styleItem.title}}" (click)="switchStyle(styleItem.buttonText)">{{styleItem.buttonText}}</button>
+        </li>
+    </ul>
+</div>
